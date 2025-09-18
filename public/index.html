@@ -29,9 +29,9 @@
       --card: #12151c;
       --chip: #0b0d12cc;
       --border: #ffffff22;
-      --accent: #7cc4ff;
-      --accent-2: #34d399;
-      --accent-3: #f59e0b;
+      --accent: #33FF5F;
+      --accent-2: #FF8C00;
+      --accent-3: #00B8FF;
       --radius: 18px;
       --shadow: 0 18px 50px rgba(0,0,0,.30);
     }
@@ -43,9 +43,24 @@
         --card: #ffffff;
         --chip: #ffffffcc;
         --border: #00000010;
-        --accent: #1d7cf2;
-        --accent-2: #059669;
-        --accent-3: #d97706;
+        --accent: #33FF5F;
+        --accent-2: #FF8C00;
+        --accent-3: #00B8FF;
+      }
+    }
+
+    @supports (color: color(display-p3 1 1 1)) {
+      :root {
+        --accent: color(display-p3 0.10 0.98 0.25);
+        --accent-2: color(display-p3 1 0.55 0);
+        --accent-3: color(display-p3 0 0.72 1);
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --accent: color(display-p3 0.10 0.98 0.25);
+          --accent-2: color(display-p3 1 0.55 0);
+          --accent-3: color(display-p3 0 0.72 1);
+        }
       }
     }
 
@@ -189,19 +204,19 @@
     <section class="card" id="brand" style="margin-top:18px">
       <div class="pad">
         <h2>Brand Kit</h2>
-        <p class="muted">These are starter values—replace with your final palette and logo when ready.</p>
+
         <div class="swatches" role="list">
           <div class="swatch" role="listitem">
             <div class="chip" style="background: var(--accent)"></div>
-            <div class="meta"><span>Accent</span><code>#7CC4FF</code></div>
+            <div class="meta"><span>Aurora Lime</span><code>#33FF5F / color(display-p3 0.10 0.98 0.25)</code></div>
           </div>
           <div class="swatch" role="listitem">
             <div class="chip" style="background: var(--accent-2)"></div>
-            <div class="meta"><span>Accent 2</span><code>#34D399</code></div>
+            <div class="meta"><span>Solar Orange</span><code>#FF8C00 / color(display-p3 1 0.55 0)</code></div>
           </div>
           <div class="swatch" role="listitem">
             <div class="chip" style="background: var(--accent-3)"></div>
-            <div class="meta"><span>Accent 3</span><code>#F59E0B</code></div>
+            <div class="meta"><span>Ion Blue</span><code>#00B8FF / color(display-p3 0 0.72 1)</code></div>
           </div>
         </div>
 
