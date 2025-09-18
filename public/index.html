@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GavDev — Fast, simple web tooling</title>
+  <!-- Toggle discoverability: change to index,follow when you're ready -->
+  <meta name="robots" content="index,follow" />
+  <meta name="description" content="Polished placeholder for GavDev. Clean business card + brand kit + security page on one file." />
+  <link rel="canonical" href="https://gavdev.xyz/" />
+  <link rel="security.txt" href="/.well-known/security.txt" />
+
+  <!-- Open Graph / Twitter cards (swap image later) -->
+  <meta property="og:title" content="GavDev — Coming Soon" />
+  <meta property="og:description" content="Clean business card, brand kit, and security contact." />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Basic CSP (relaxed due to inline CSS/JS). Tighten later by moving CSS/JS to files. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'self'">
+
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #0b0d12;
+      --fg: #e8eef6;
+      --muted: #9aa7b2;
+      --card: #12151c;
+      --chip: #0b0d12cc;
+      --border: #ffffff22;
+      --accent: #7cc4ff;
+      --accent-2: #34d399;
+      --accent-3: #f59e0b;
+      --radius: 18px;
+      --shadow: 0 18px 50px rgba(0,0,0,.30);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7f9fc;
+        --fg: #0b0d12;
+        --muted: #5b6670;
+        --card: #ffffff;
+        --chip: #ffffffcc;
+        --border: #00000010;
+        --accent: #1d7cf2;
+        --accent-2: #059669;
+        --accent-3: #d97706;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font: 16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      min-height: 100dvh;
+    }
+
+    /* Generative background (Option 7) */
+    .fx-wrap { position: fixed; inset: 0; overflow: hidden; z-index: 0; }
+    .fx, .fx::before, .fx::after {
+      position: absolute; inset: -20%; content: ""; filter: blur(60px);
+      background:
+        radial-gradient(40% 60% at 30% 30%, color-mix(in oklab, var(--accent) 60%, transparent) 0, transparent 70%),
+        radial-gradient(35% 55% at 70% 60%, color-mix(in oklab, var(--accent-2) 60%, transparent) 0, transparent 70%),
+        radial-gradient(30% 45% at 50% 80%, color-mix(in oklab, var(--accent-3) 60%, transparent) 0, transparent 70%);
+      animation: float 28s linear infinite;
+    }
+    .fx::before { animation-duration: 36s; mix-blend-mode: screen; }
+    .fx::after  { animation-duration: 32s; mix-blend-mode: overlay; }
+    @keyframes float { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1.05); } }
+    @media (prefers-reduced-motion: reduce) { .fx, .fx::before, .fx::after { animation: none; } }
+
+    /* Layout */
+    .container { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+    header {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 8px 0 20px;
+    }
+    .logo {
+      display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;
+    }
+    .mark {
+      width: 36px; height: 36px; border-radius: 10px; display:grid; place-items:center; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; font-weight: 700;
+    }
+    .wordmark { font-size: 18px; font-weight: 700; letter-spacing: .3px; }
+
+    nav { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      --p: 10px 14px; --r: 12px; --b: 1px; --o: .12;
+      padding: var(--p); border-radius: var(--r); border: var(--b) solid rgb(255 255 255 / var(--o));
+      text-decoration: none; color: var(--fg); display: inline-flex; align-items: center; gap: 8px;
+      backdrop-filter: blur(8px);
+    }
+    .btn.primary { border-color: transparent; background: linear-gradient(135deg, var(--accent), transparent 140%); }
+
+    /* Card blocks */
+    .grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    @media (min-width: 900px) { .grid { grid-template-columns: 1.2fr .8fr; } }
+
+    .card {
+      background: var(--chip); border: 1px solid var(--border); border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .card > .pad { padding: 22px 22px 20px; }
+    .card h2 { margin: 0 0 8px; font-size: clamp(18px, 2vw, 22px); }
+    .muted { color: var(--muted); }
+
+    /* Hero (Option 1) */
+    .hero h1 { margin: 0 0 6px; font-size: clamp(24px, 5vw, 38px); letter-spacing: .2px; }
+    .hero p { margin: 0 0 12px; color: var(--muted); }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+
+    /* Brand kit (Option 6) */
+    .swatches { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 10px; }
+    .swatch { border-radius: 12px; overflow: clip; border: 1px solid var(--border); }
+    .swatch .chip { height: 56px; }
+    .swatch .meta { padding: 8px 10px; font-size: 13px; display:flex; justify-content:space-between; align-items:center; }
+
+    .lockups { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 12px; }
+    .lock { border: 1px dashed var(--border); border-radius: 14px; padding: 14px; display:flex; align-items:center; gap: 12px; }
+
+    /* Security (Option 10) */
+    .security dt { font-weight: 600; margin-top: 10px; }
+    .security dd { margin: 2px 0 8px 0; color: var(--muted); }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: .95em; }
+
+    footer { margin-top: 28px; text-align: center; color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="fx-wrap" aria-hidden="true"><div class="fx"></div></div>
+  <div class="container">
+    <header>
+      <a class="logo" href="#">
+        <div class="mark" aria-hidden="true">GD</div>
+        <div class="wordmark">GavDev</div>
+      </a>
+      <nav>
+        <a class="btn" href="/docs">Docs</a>
+        <a class="btn" href="https://status.gavdev.xyz" rel="noopener">Status</a>
+        <a class="btn" href="https://github.com/gavdaly" rel="noopener">GitHub</a>
+        <a class="btn primary" href="mailto:gavin @gavdev.xyz">Contact</a>
+      </nav>
+    </header>
+
+    <div class="grid">
+      <!-- Left: Hero + Security summary -->
+      <section class="card hero">
+        <div class="pad">
+          <h1>Fast, simple, sustainable web tooling</h1>
+          <p>We’re building behind the scenes. For partnerships or inquiries: <a class="btn" href="mailto:gavin @gavdev.xyz">gavin@gavdev.xyz</a></p>
+          <div class="links">
+            <a class="btn primary" href="mailto:gavin @gavdev.xyz">Report a security issue</a>
+            <a class="btn" href="/.well-known/security.txt">security.txt</a>
+            <a class="btn" href="#brand">Brand kit</a>
+            <a class="btn" href="#privacy">Privacy</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: Security quick info (Option 10) -->
+      <aside class="card">
+        <div class="pad">
+          <h2 id="privacy">Privacy & Security</h2>
+          <dl class="security">
+            <dt>Contact</dt>
+            <dd><a href="mailto:gavin @gavdev.xyz">gavin@gavdev.xyz</a></dd>
+
+            <dt>age public key</dt>
+            <dd><code>age1lyvetw03hc2slx02vh2ndp5wp5uhvpdl3e4z7z3sym7umuhm7uyqzqvj20</code></dd>
+
+            <dt>Policy</dt>
+            <dd>No trackers. No third-party cookies. Please avoid automated scans that may disrupt service.</dd>
+
+            <dt>Coordinated Disclosure</dt>
+            <dd>We follow a 90‑day disclosure window. If you find a vulnerability, email us with steps to reproduce and impact. We’ll acknowledge within 72 hours.</dd>
+
+            <dt>security.txt</dt>
+            <dd><a href="/.well-known/security.txt">/.well-known/security.txt</a> (linked for crawlers)</dd>
+          </dl>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Brand kit card (Option 6) -->
+    <section class="card" id="brand" style="margin-top:18px">
+      <div class="pad">
+        <h2>Brand Kit</h2>
+        <p class="muted">These are starter values—replace with your final palette and logo when ready.</p>
+        <div class="swatches" role="list">
+          <div class="swatch" role="listitem">
+            <div class="chip" style="background: var(--accent)"></div>
+            <div class="meta"><span>Accent</span><code>#7CC4FF</code></div>
+          </div>
+          <div class="swatch" role="listitem">
+            <div class="chip" style="background: var(--accent-2)"></div>
+            <div class="meta"><span>Accent 2</span><code>#34D399</code></div>
+          </div>
+          <div class="swatch" role="listitem">
+            <div class="chip" style="background: var(--accent-3)"></div>
+            <div class="meta"><span>Accent 3</span><code>#F59E0B</code></div>
+          </div>
+        </div>
+
+        <div class="lockups">
+          <div class="lock" aria-label="Horizontal lockup">
+            <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="var(--accent)"/>
+                  <stop offset="100%" stop-color="var(--accent-2)"/>
+                </linearGradient>
+              </defs>
+              <rect rx="10" width="40" height="40" fill="url(#g1)" />
+              <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-size="14" font-weight="700" font-family="ui-monospace,monospace">GD</text>
+            </svg>
+            <strong>Your&nbsp;Brand</strong>
+            <span class="muted">— horizontal lockup</span>
+          </div>
+          <div class="lock" aria-label="Stacked lockup">
+            <div style="display:grid;place-items:center;gap:6px;">
+              <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+                <defs>
+                  <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="var(--accent-3)"/>
+                    <stop offset="100%" stop-color="var(--accent)"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="20" cy="20" r="18" fill="url(#g2)" />
+              </svg>
+              <strong>Your&nbsp;Brand</strong>
+            </div>
+            <span class="muted">— stacked mark</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> <span id="brand-name">GavDev</span> • All rights reserved
+    </footer>
+  </div>
+
+  <script>
+    // Year autofill
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+
+</body>
+</html>

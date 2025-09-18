@@ -1,0 +1,17 @@
+# security.txt for GavDev (gavdev.xyz)
+# See RFC 9116: https://www.rfc-editor.org/rfc/rfc9116
+
+Contact: mailto:gavin@gavdev.xyz
+# Optional web form (uncomment when available)
+# Contact: https://gavdev.xyz/security-report
+
+# Publish your ASCII-armored OpenPGP public key at this URL when ready
+Encryption: https://gavdev.xyz/age.txt
+
+Policy: https://gavdev.xyz/security
+Acknowledgments: https://gavdev.xyz/hall-of-thanks
+Preferred-Languages: en
+Canonical: https://gavdev.xyz/.well-known/security.txt
+
+# Update this date as needed (must be in the future)
+Expires: [update later]
