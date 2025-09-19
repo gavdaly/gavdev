@@ -31,7 +31,6 @@ export function HomePage() {
                 <meta property="og:type" content="website" />
                 <meta name="twitter:card" content="summary_large_image" />
 
-                {/* Basic CSP (relaxed due to inline CSS/JS). Tighten later by moving CSS/JS to files. */}
                 <meta
                     http-equiv="Content-Security-Policy"
                     content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; base-uri 'none'; form-action 'self'"
@@ -52,7 +51,6 @@ export function HomePage() {
                             <div className="wordmark">GavDev</div>
                         </a>
                         <nav>
-
                             <a
                                 className="btn"
                                 href="https://status.gavdev.xyz"
@@ -76,7 +74,7 @@ export function HomePage() {
                         </nav>
                     </header>
 
-                    <Card>
+                    <Card className="card-first">
                         <p>
                             This domain is primarily for development.
                             Significant content will be added later.
@@ -128,29 +126,34 @@ export function HomePage() {
                                     </a>
                                 </dd>
 
-                                <dt>age public key</dt>
-                                <dd>
-                                    <div className="age-key-container">
-                                    <div className="age-key-header">
-                                            <span style={{ fontWeight: 600 }}>
-                                                age Public Key
-                                            </span>
-                                            <button
-                                                className="btn age-key-copy-button"
-                                                onClick="copyAgeKey()"
-                                            >
-                                                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                    <use href="/static/icons.svg#icon-copy" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <code
-                                            id="age-public-key"
-                                            className="age-key-code"
+                                <dt class="flex">
+                                    <span>age public key</span>
+                                    <span>
+                                        <button
+                                            className="btn age-key-copy-button"
+                                            onClick="copyAgeKey()"
                                         >
-                                            age1lyvetw03hc2slx02vh2ndp5wp5uhvpdl3e4z7z3sym7umuhm7uyqzqvj20
-                                        </code>
-                                    </div>
+                                            <svg
+                                                width="20"
+                                                height="20"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            >
+                                                <use href="/static/icons.svg#icon-copy" />
+                                            </svg>
+                                        </button>
+                                    </span>
+                                </dt>
+                                <dd>
+                                    <code
+                                        id="age-public-key"
+                                        className="age-key-code"
+                                    >
+                                        age1lyvetw03hc2slx02vh2ndp5wp5uhvpdl3e4z7z3sym7umuhm7uyqzqvj20
+                                    </code>
                                 </dd>
 
                                 <dt>Policy</dt>
@@ -179,24 +182,26 @@ export function HomePage() {
                         </Card>
                     </div>
 
-                    {/* Brand kit card (Option 6) */}
                     <Card id="brand" className="card-brand">
                         <h2>Brand Kit</h2>
                         <div className="swatches" role="list">
                             <Swatch
                                 color="var(--accent)"
                                 name="Aurora Lime"
-                                code="#33FF5F / color(display-p3 0.10 0.98 0.25)"
+                                hex="#33FF5F"
+                                p3="color(display-p3 0.10 0.98 0.25)"
                             />
                             <Swatch
                                 color="var(--accent-2)"
                                 name="Solar Orange"
-                                code="#FF8C00 / color(display-p3 1 0.55 0)"
+                                hex="#FF8C00"
+                                p3="color(display-p3 1 0.55 0)"
                             />
                             <Swatch
                                 color="var(--accent-3)"
                                 name="Ion Blue"
-                                code="#00B8FF / color(display-p3 0 0.72 1)"
+                                hex="#00B8FF"
+                                p3="color(display-p3 0 0.72 1)"
                             />
                         </div>
                         <div className="lockups">
