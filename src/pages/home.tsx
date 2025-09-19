@@ -130,16 +130,7 @@ export function HomePage() {
 
                                 <dt>age public key</dt>
                                 <dd>
-                                    <div
-                                        style={{
-                                            border: "1px solid var(--border)",
-                                            borderRadius: "var(--radius)",
-                                            padding: "10px",
-                                            marginTop: "5px",
-                                            overflowY: "auto",
-                                            maxHeight: "150px",
-                                        }}
-                                    >
+                                    <div className="age-key-container">
                                         <div
                                             style={{
                                                 display: "flex",
