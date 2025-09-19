@@ -44,6 +44,10 @@ export function HomePage() {
             </nav>
           </header>
 
+          <Card>
+            <p>This domain is primarily for development. Significant content will be added later.</p>
+          </Card>
+
           <div className="grid">
             {/* Left: Hero + Security summary */}
             <Card className="hero">
