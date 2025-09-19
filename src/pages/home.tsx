@@ -52,9 +52,7 @@ export function HomePage() {
                             <div className="wordmark">GavDev</div>
                         </a>
                         <nav>
-                            <a className="btn" href="/docs">
-                                Docs
-                            </a>
+
                             <a
                                 className="btn"
                                 href="https://status.gavdev.xyz"
