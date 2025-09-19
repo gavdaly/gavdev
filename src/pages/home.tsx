@@ -10,6 +10,7 @@ export function HomePage() {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>GavDev — Fast, simple web tooling</title>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         {/* Toggle discoverability: change to index,follow when you're ready */}
         <meta name="robots" content="index,follow" />
         <meta name="description" content="Polished placeholder for GavDev. Clean business card + brand kit + security page on one file." />
