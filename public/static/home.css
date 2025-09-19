@@ -67,7 +67,7 @@
     @media (prefers-reduced-motion: reduce) { .fx, .fx::before, .fx::after { animation: none; } }
 
     /* Layout */
-    .container { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+    .container { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 20px clamp(15px, 4vw, 32px) 40px; }
     header {
       display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 8px 0 20px;
     }
@@ -106,7 +106,8 @@
     .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
 
     /* Brand kit (Option 6) */
-    .swatches { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 10px; }
+    .swatches { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin-top: 10px; }
+    @media (min-width: 600px) { .swatches { grid-template-columns: repeat(3, minmax(0,1fr)); } }
     .swatch { border-radius: 12px; overflow: clip; border: 1px solid var(--border); }
     .swatch .chip { height: 56px; }
     .swatch .meta { padding: 8px 10px; font-size: 13px; display:flex; justify-content:space-between; align-items:center; }
