@@ -2,8 +2,11 @@ import { Hono } from "hono";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { serveStatic } from "hono/cloudflare-workers";
 import { HelloPage } from "./pages/hello";
+import { HomePage } from "./pages/home";
 
 const app = new Hono<{ Bindings: CloudflareBindings }>();
+
+app.get("/", (c) => c.html(HomePage()));
 
 app.use("/*", serveStatic({ root: "./public" }));
 
