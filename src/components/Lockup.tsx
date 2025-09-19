@@ -29,7 +29,7 @@ export function Lockup(props: LockupProps) {
   } else if (type === "stacked") {
     return (
       <div className="lock" aria-label="Stacked lockup">
-        <div style={{ display: 'grid', placeItems: 'center', gap: '6px' }}>
+        <div className="lock-stacked-content">
           <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
             <defs>
               <linearGradient id="g2" x1="1" y1="0" x2="0" y2="1">

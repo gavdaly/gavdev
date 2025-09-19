@@ -129,4 +129,30 @@
       max-height: 150px;
     }
 
+    .age-key-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .age-key-copy-button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .age-key-code {
+      flex-grow: 1;
+    }
+
+    .lock-stacked-content {
+      display: grid;
+      place-items: center;
+      gap: 6px;
+    }
+
+    .card-brand { margin-top: 18px; }
+
     footer { margin-top: 28px; text-align: center; color: var(--muted); font-size: 14px; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }

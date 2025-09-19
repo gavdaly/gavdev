@@ -131,26 +131,13 @@ export function HomePage() {
                                 <dt>age public key</dt>
                                 <dd>
                                     <div className="age-key-container">
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                justifyContent: "space-between",
-                                                alignItems: "center",
-                                                marginBottom: "5px",
-                                            }}
-                                        >
+                                    <div className="age-key-header">
                                             <span style={{ fontWeight: 600 }}>
                                                 age Public Key
                                             </span>
                                             <button
-                                                className="btn"
+                                                className="btn age-key-copy-button"
                                                 onClick="copyAgeKey()"
-                                                style={{
-                                                    background: "none",
-                                                    border: "none",
-                                                    padding: 0,
-                                                    cursor: "pointer",
-                                                }}
                                             >
                                                 <svg width="20" height="20">
                                                     <use href="/static/icons.svg#icon-copy" />
@@ -159,7 +146,7 @@ export function HomePage() {
                                         </div>
                                         <code
                                             id="age-public-key"
-                                            style={{ flexGrow: 1 }}
+                                            className="age-key-code"
                                         >
                                             age1lyvetw03hc2slx02vh2ndp5wp5uhvpdl3e4z7z3sym7umuhm7uyqzqvj20
                                         </code>
@@ -193,7 +180,7 @@ export function HomePage() {
                     </div>
 
                     {/* Brand kit card (Option 6) */}
-                    <Card id="brand" style={{ marginTop: "18px" }}>
+                    <Card id="brand" className="card-brand">
                         <h2>Brand Kit</h2>
                         <div className="swatches" role="list">
                             <Swatch
