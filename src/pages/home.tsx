@@ -139,7 +139,7 @@ export function HomePage() {
                                                 className="btn age-key-copy-button"
                                                 onClick="copyAgeKey()"
                                             >
-                                                <svg width="20" height="20">
+                                                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                                     <use href="/static/icons.svg#icon-copy" />
                                                 </svg>
                                             </button>
