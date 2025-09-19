@@ -72,7 +72,7 @@ export function HomePage() {
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '5px' }}>
                                   <span style={{ fontWeight: 600 }}>age Public Key</span>
                                   <button className="btn" onClick="copyAgeKey()" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-copy"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                    <svg width="20" height="20"><use href="/static/icons.svg#icon-copy" /></svg>
                                   </button>
                                 </div>
                                 <code id="age-public-key" style={{ flexGrow: 1 }}>age1lyvetw03hc2slx02vh2ndp5wp5uhvpdl3e4z7z3sym7umuhm7uyqzqvj20</code>
