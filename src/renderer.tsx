@@ -16,10 +16,7 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
                 <title>GavDev</title>
                 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
                 <meta name="robots" content="index,follow" />
-                <meta
-                    name="description"
-                    content="Polished placeholder for GavDev. Clean business card + brand kit + security page on one file."
-                />
+                <meta name="description" content="GavDev" />
                 <link rel="canonical" href="https://gavdev.xyz/" />
                 <link rel="security.txt" href="/.well-known/security.txt" />
 
@@ -57,6 +54,7 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
                             <a
                                 className="btn"
                                 href="https://status.gavdev.xyz"
+                                target="_blank"
                                 rel="noopener"
                             >
                                 Status
@@ -64,13 +62,14 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
                             <a
                                 className="btn"
                                 href="https://github.com/gavdaly"
+                                target="_blank"
                                 rel="noopener"
                             >
                                 GitHub
                             </a>
                             <a
                                 className="btn primary"
-                                href="mailto:gavin @gavdev.xyz"
+                                href="mailto:gavin@gavdev.xyz"
                             >
                                 Contact
                             </a>
@@ -80,7 +79,7 @@ export function Layout(props: PropsWithChildren<LayoutProps>) {
                     {props.children}
 
                     <footer>
-                        © <span id="y"></span>{" "}
+                        © <span id="y">{new Date().getFullYear()}</span>{" "}
                         <span id="brand-name">GavDev</span> • All rights
                         reserved
                     </footer>

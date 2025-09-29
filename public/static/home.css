@@ -186,26 +186,12 @@ nav {
     background: linear-gradient(135deg, var(--accent), transparent 140%);
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-}
-@media (min-width: 900px) {
-    .grid {
-        grid-template-columns: 1.2fr 0.8fr;
-    }
-}
-
-.card-first {
-    margin-bottom: 20px;
-}
-
 .card {
     background: var(--chip);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
+    margin-bottom: 20px;
 }
 .card > .pad {
     padding: clamp(16px, 4vw, 22px);
@@ -267,7 +253,6 @@ nav {
 }
 .swatch .meta code span {
     display: block;
-
 }
 
 .lockups {
@@ -290,7 +275,6 @@ nav {
 .lock .muted {
     display: block;
     margin-top: 4px;
-
 }
 
 .security dt {
