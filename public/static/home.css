@@ -308,22 +308,6 @@ code {
     font-size: 0.95em;
 }
 
-.age-key-container {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 10px;
-    margin-top: 5px;
-    overflow-y: auto;
-    max-height: 150px;
-}
-
-.age-key-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
 .age-key-copy-button {
     background: none;
     border: none;
